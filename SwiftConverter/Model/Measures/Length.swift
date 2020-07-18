@@ -8,77 +8,20 @@
 
 import Foundation
 
-public enum LengthUnit: Double {
-    //metric
-    case millimeter = 0.001
-    case centimeter = 0.01
-    case meter = 1
-    case kilometer = 1000
+struct Length: MeasurementProtocol {
+    static var name = "Length"
     
-    //imperial
-    case inch = 0.0254
-    case foot = 0.3048
-    case yard = 0.9144
-    case mile = 1609.34
+    private static let millimeters = Unit(name: "Millimeters", unit: UnitLength.millimeters)
+    private static let centimeter = Unit(name: "Centimeter", unit: UnitLength.centimeters)
+    private static let meters = Unit(name: "Meters", unit: UnitLength.meters)
+    private static let kilometers = Unit(name: "Kilometers", unit: UnitLength.kilometers)
     
-    //space
-    case parsec = 30856775812799588
+    private static let inches = Unit(name: "Inches", unit: UnitLength.inches)
+    private static let feet = Unit(name: "Feet", unit: UnitLength.feet)
+    private static let yards = Unit(name: "Yard", unit: UnitLength.yards)
+    private static let miles = Unit(name: "Miles", unit: UnitLength.miles)
+    
+    private static let parsecs = Unit(name: "Parsecs", unit: UnitLength.parsecs)
 
-    static var defaultLength: Double {
-        return LengthUnit.meter.rawValue
-    }
-}
-
-public struct Length {
-    public let value: Double
-    public let unit: LengthUnit
-
-    public init(value: Double, unit: LengthUnit) {
-        self.value = value
-        self.unit = unit
-    }
-
-    public func convertTo(length: LengthUnit) -> Length {
-        let currentUnitMeterValue = self.value * self.unit.rawValue
-        let desiredUnit = currentUnitMeterValue / length.rawValue
-        return Length(value: desiredUnit, unit: length)
-    }
-}
-
-public extension Double {
-    var millimeter: Length {
-        return Length(value: self, unit: .millimeter)
-    }
-
-    var centimeter: Length {
-        return Length(value: self, unit: .centimeter)
-    }
-    
-    var meter: Length {
-        return Length(value: self, unit: .meter)
-    }
-    
-    var kilometer: Length {
-        return Length(value: self, unit: .kilometer)
-    }
-    
-    var inch: Length {
-        return Length(value: self, unit: .inch)
-    }
-    
-    var foot: Length {
-        return Length(value: self, unit: .foot)
-    }
-    
-    var yard: Length {
-        return Length(value: self, unit: .yard)
-    }
-    
-    var mile: Length {
-        return Length(value: self, unit: .mile)
-    }
-
-    var parsec: Length {
-        return Length(value: self, unit: .parsec)
-    }
+    static let includedUnits = [millimeters, centimeter, meters, kilometers, inches, feet, yards, miles, parsecs]
 }

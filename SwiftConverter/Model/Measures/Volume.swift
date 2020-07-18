@@ -8,65 +8,16 @@
 
 import Foundation
 
-public enum VolumeUnit: Double {
-    //metric
-    case milliliter = 0.001
-    case liter = 1
-    case kiloliter = 1000
+struct Volume: MeasurementProtocol {
+    static var name = "Temperature"
     
-    //imperial
-    case gill = 0.118294
-    case pint = 0.473176
-    case quart = 0.946353
-    case gallon = 3.78541
-
-    static var defaultScale: Double {
-        return VolumeUnit.liter.rawValue
-    }
-}
-
-public struct Volume {
-    public let value: Double
-    public let unit: VolumeUnit
-
-    public init(value: Double, unit: VolumeUnit) {
-        self.value = value
-        self.unit = unit
-    }
-
-    public func convertTo(volume: VolumeUnit) -> Volume {
-        let currentUnitLiterValue = self.value * self.unit.rawValue
-        let desiredUnit =  currentUnitLiterValue / volume.rawValue
-        return Volume(value: desiredUnit, unit: volume)
-    }
-}
-
-public extension Double {
-    var milliliter: Volume {
-        return Volume(value: self, unit: .milliliter)
-    }
-
-    var liter: Volume {
-        return Volume(value: self, unit: .liter)
-    }
-
-    var kiloliter: Volume {
-        return Volume(value: self, unit: .kiloliter)
-    }
-
-    var gill: Volume {
-        return Volume(value: self, unit: .gill)
-    }
+    private static let milliliters = Unit(name: "Milliliters", unit: UnitVolume.milliliters)
+    private static let liters = Unit(name: "Liters", unit: UnitVolume.liters)
+    private static let kiloliters = Unit(name: "Kiloliters", unit: UnitVolume.kiloliters)
     
-    var pint: Volume {
-        return Volume(value: self, unit: .pint)
-    }
-    
-    var quart: Volume {
-        return Volume(value: self, unit: .quart)
-    }
+    private static let pints = Unit(name: "Pints", unit: UnitVolume.pints)
+    private static let quart = Unit(name: "Quarts", unit: UnitVolume.quarts)
+    private static let gallons = Unit(name: "Gallons", unit: UnitVolume.gallons)
 
-    var gallon: Volume {
-        return Volume(value: self, unit: .gallon)
-    }
+    static let includedUnits = [milliliters, liters, kiloliters, pints, quart, gallons]
 }

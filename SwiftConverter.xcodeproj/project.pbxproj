@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		503F42A524C299B900BEF603 /* MeasurementProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503F42A424C299B900BEF603 /* MeasurementProtocol.swift */; };
+		503F42A724C29AAE00BEF603 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503F42A624C29AAE00BEF603 /* Unit.swift */; };
+		503F42A924C29BB700BEF603 /* PublicMeasurments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503F42A824C29BB700BEF603 /* PublicMeasurments.swift */; };
 		505FC4C724C0DA72002A1DC0 /* Power.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505FC4BC24C0DA72002A1DC0 /* Power.swift */; };
 		505FC4C824C0DA72002A1DC0 /* Length.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505FC4BD24C0DA72002A1DC0 /* Length.swift */; };
 		505FC4CC24C0DA72002A1DC0 /* Weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505FC4C124C0DA72002A1DC0 /* Weight.swift */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		503F42A424C299B900BEF603 /* MeasurementProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementProtocol.swift; sourceTree = "<group>"; };
+		503F42A624C29AAE00BEF603 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
+		503F42A824C29BB700BEF603 /* PublicMeasurments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicMeasurments.swift; sourceTree = "<group>"; };
 		505FC4BC24C0DA72002A1DC0 /* Power.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Power.swift; sourceTree = "<group>"; };
 		505FC4BD24C0DA72002A1DC0 /* Length.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Length.swift; sourceTree = "<group>"; };
 		505FC4C124C0DA72002A1DC0 /* Weight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weight.swift; sourceTree = "<group>"; };
@@ -53,6 +59,9 @@
 			isa = PBXGroup;
 			children = (
 				505FC4D124C0DD91002A1DC0 /* Measures */,
+				503F42A424C299B900BEF603 /* MeasurementProtocol.swift */,
+				503F42A824C29BB700BEF603 /* PublicMeasurments.swift */,
+				503F42A624C29AAE00BEF603 /* Unit.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,9 +193,12 @@
 				505FC4C824C0DA72002A1DC0 /* Length.swift in Sources */,
 				50D4ACBF24C0C1880052289F /* SceneDelegate.swift in Sources */,
 				505FC4C724C0DA72002A1DC0 /* Power.swift in Sources */,
+				503F42A524C299B900BEF603 /* MeasurementProtocol.swift in Sources */,
 				505FC4D024C0DA72002A1DC0 /* Volume.swift in Sources */,
+				503F42A724C29AAE00BEF603 /* Unit.swift in Sources */,
 				505FC4CC24C0DA72002A1DC0 /* Weight.swift in Sources */,
 				505FC4CD24C0DA72002A1DC0 /* Temperature.swift in Sources */,
+				503F42A924C29BB700BEF603 /* PublicMeasurments.swift in Sources */,
 				50D4ACC124C0C1880052289F /* ContentView.swift in Sources */,
 				505FC4CF24C0DA72002A1DC0 /* Area.swift in Sources */,
 			);

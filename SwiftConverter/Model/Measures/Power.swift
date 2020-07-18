@@ -8,53 +8,14 @@
 
 import Foundation
 
-public enum PowerUnit: Double {
-    //standart
-    case milliwatt = 0.001
-    case watt = 1
-    case kilowatt = 1000
-    case megawatt = 1000000
-    case gigawatt = 1000000000
+struct Power: MeasurementProtocol {
+    static var name = "Power"
+    
+    private static let milliwatts = Unit(name: "Milliwatts", unit: UnitPower.milliwatts)
+    private static let watts = Unit(name: "Watts", unit: UnitPower.watts)
+    private static let kilowatts = Unit(name: "Kilowatts", unit: UnitPower.kilowatts)
+    private static let megawatts = Unit(name: "Megawatts", unit: UnitPower.megawatts)
+    private static let gigawatt = Unit(name: "Gigawatts", unit: UnitPower.gigawatts)
 
-    static var defaultPower: Double {
-        return PowerUnit.watt.rawValue
-    }
-}
-
-public struct Power {
-    public let value: Double
-    public let unit: PowerUnit
-
-    public init(value: Double, unit: PowerUnit) {
-        self.value = value
-        self.unit = unit
-    }
-
-    public func convertTo(power: PowerUnit) -> Power {
-        let currentUnitWattValue = self.value * self.unit.rawValue
-        let desiredUnit = currentUnitWattValue / power.rawValue
-        return Power(value: desiredUnit, unit: power)
-    }
-}
-
-public extension Double {
-    var milliwatt: Power {
-        return Power(value: self, unit: .milliwatt)
-    }
-
-    var watt: Power {
-        return Power(value: self, unit: .watt)
-    }
-
-    var kilowatt: Power {
-        return Power(value: self, unit: .kilowatt)
-    }
-
-    var megawatt: Power {
-        return Power(value: self, unit: .megawatt)
-    }
-
-    var gigawatt: Power {
-        return Power(value: self, unit: .gigawatt)
-    }
+    static let includedUnits = [milliwatts, watts, kilowatts, megawatts, gigawatt]
 }

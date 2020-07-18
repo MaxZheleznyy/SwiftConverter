@@ -8,71 +8,20 @@
 
 import Foundation
 
-public enum AreaUnit: Double {
-    //metric
-    case squareCentimeter = 0.0001
-    case squareMeter = 1
-    case hectare = 10000
-    case squareKilometer = 1000000
-    
-    //imperial
-    case squareFoot = 0.092903
-    case squareYard = 0.836127
-    case acre = 4046.86
-    case squareMile = 2589988.1
-    
+import Foundation
 
-    static var defaultArea: Double {
-        return AreaUnit.squareMeter.rawValue
-    }
-}
-
-public struct Area {
-    public let value: Double
-    public let unit: AreaUnit
-
-    public init(value: Double, unit: AreaUnit) {
-        self.value = value
-        self.unit = unit
-    }
-
-    public func convertTo(area: AreaUnit) -> Area {
-        let currentUnitSQMeterValue = self.value * self.unit.rawValue
-        let desiredUnit = currentUnitSQMeterValue / area.rawValue
-        return Area(value: desiredUnit, unit: area)
-    }
-}
-
-public extension Double {
-    var squareCentimeter: Area {
-        return Area(value: self, unit: .squareCentimeter)
-    }
+struct Area: MeasurementProtocol {
+    static var name = "Area"
     
-    var squareMeter: Area {
-        return Area(value: self, unit: .squareMeter)
-    }
+    private static let squareCentimeters = Unit(name: "Square Centimeters", unit: UnitArea.squareCentimeters)
+    private static let squareMeters = Unit(name: "Square Meters", unit: UnitArea.squareMeters)
+    private static let hectares = Unit(name: "Hectares", unit: UnitArea.hectares)
+    private static let squareKilometers = Unit(name: "Square Kilometers", unit: UnitArea.squareKilometers)
     
-    var hectare: Area {
-        return Area(value: self, unit: .hectare)
-    }
-
-    var squareKilometer: Area {
-        return Area(value: self, unit: .squareKilometer)
-    }
+    private static let squareFeets = Unit(name: "Square Feets", unit: UnitArea.squareFeet)
+    private static let squareYards = Unit(name: "Square Yards", unit: UnitArea.squareYards)
+    private static let squareAcres = Unit(name: "Square Acres", unit: UnitArea.acres)
+    private static let squareMiles = Unit(name: "Square Miles", unit: UnitArea.squareMiles)
     
-    var squareFoot: Area {
-        return Area(value: self, unit: .squareFoot)
-    }
-
-    var squareYard: Area {
-        return Area(value: self, unit: .squareYard)
-    }
-    
-    var acre: Area {
-        return Area(value: self, unit: .acre)
-    }
-    
-    var squareMile: Area {
-        return Area(value: self, unit: .squareMile)
-    }
+    static let includedUnits = [squareCentimeters, squareMeters, hectares, squareKilometers, squareFeets, squareYards, squareAcres, squareMiles]
 }

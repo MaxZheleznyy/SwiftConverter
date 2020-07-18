@@ -8,60 +8,16 @@
 
 import Foundation
 
-public enum WeightUnit: Double {
-    //metric
-    case milligram = 0.001
-    case gram = 1
-    case kilogram = 1000
-    case ton = 1000000
+struct Weight: MeasurementProtocol {
+    static var name = "Weight"
     
-    //imperial
-    case ounce = 28.3495
-    case pound = 453.592
+    private static let milligrams = Unit(name: "Milligrams", unit: UnitMass.milligrams)
+    private static let grams = Unit(name: "Grams", unit: UnitMass.grams)
+    private static let kilograms = Unit(name: "Kilograms", unit: UnitMass.kilograms)
+    private static let tons = Unit(name: "Tons", unit: UnitMass.metricTons)
+    
+    private static let ounces = Unit(name: "Ounces", unit: UnitMass.ounces)
+    private static let pounds = Unit(name: "Pounds", unit: UnitMass.pounds)
 
-    static var defaultWeight: Double {
-        return WeightUnit.gram.rawValue
-    }
-}
-
-public struct Weight {
-    public let value: Double
-    public let unit: WeightUnit
-
-    public init(value: Double, unit: WeightUnit) {
-        self.value = value
-        self.unit = unit
-    }
-
-    public func convertTo(weight: WeightUnit) -> Weight {
-        let currentUnitGramValue = self.value * self.unit.rawValue
-        let desiredUnit = currentUnitGramValue / weight.rawValue
-        return Weight(value: desiredUnit, unit: weight)
-    }
-}
-
-public extension Double {
-    var milligram: Weight {
-        return Weight(value: self, unit: .milligram)
-    }
-
-    var gram: Weight {
-        return Weight(value: self, unit: .gram)
-    }
-
-    var kilogram: Weight {
-        return Weight(value: self, unit: .kilogram)
-    }
-
-    var ton: Weight {
-        return Weight(value: self, unit: .ton)
-    }
-
-    var ounce: Weight {
-        return Weight(value: self, unit: .ounce)
-    }
-
-    var pound: Weight {
-        return Weight(value: self, unit: .pound)
-    }
+    static let includedUnits = [milligrams, grams, kilograms, tons, ounces, pounds]
 }
