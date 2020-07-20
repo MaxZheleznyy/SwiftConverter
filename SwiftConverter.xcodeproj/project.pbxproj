@@ -79,6 +79,26 @@
 			path = Measures;
 			sourceTree = "<group>";
 		};
+		507F62F924C6048C004646B2 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				50D4ACBC24C0C1880052289F /* AppDelegate.swift */,
+				50D4ACBE24C0C1880052289F /* SceneDelegate.swift */,
+				50D4ACC224C0C1890052289F /* Assets.xcassets */,
+				50D4ACC724C0C1890052289F /* LaunchScreen.storyboard */,
+				50D4ACCA24C0C1890052289F /* Info.plist */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		507F62FA24C604A6004646B2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				50D4ACC024C0C1880052289F /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		50D4ACB024C0C1880052289F = {
 			isa = PBXGroup;
 			children = (
@@ -99,12 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				505FC4BA24C0DA72002A1DC0 /* Model */,
-				50D4ACBC24C0C1880052289F /* AppDelegate.swift */,
-				50D4ACBE24C0C1880052289F /* SceneDelegate.swift */,
-				50D4ACC024C0C1880052289F /* ContentView.swift */,
-				50D4ACC224C0C1890052289F /* Assets.xcassets */,
-				50D4ACC724C0C1890052289F /* LaunchScreen.storyboard */,
-				50D4ACCA24C0C1890052289F /* Info.plist */,
+				507F62FA24C604A6004646B2 /* View */,
+				507F62F924C6048C004646B2 /* Support */,
 				50D4ACC424C0C1890052289F /* Preview Content */,
 			);
 			path = SwiftConverter;
@@ -340,7 +356,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftConverter/Preview Content\"";
 				DEVELOPMENT_TEAM = M5GNN3BNG3;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = SwiftConverter/Info.plist;
+				INFOPLIST_FILE = SwiftConverter/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -360,7 +376,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftConverter/Preview Content\"";
 				DEVELOPMENT_TEAM = M5GNN3BNG3;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = SwiftConverter/Info.plist;
+				INFOPLIST_FILE = SwiftConverter/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
