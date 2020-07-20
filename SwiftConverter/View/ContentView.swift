@@ -70,8 +70,20 @@ struct ContentView: View {
                     .id(unitTypeIndex)
                     .pickerStyle(SegmentedPickerStyle())
                 }
-                
-                Section() {
+            
+                Section(header: HStack {
+                    Spacer()
+                    
+                    Button(action: {
+                        print("💩")
+                    }) {
+                        Image(systemName: "arrow.up.arrow.down.circle.fill")
+                        .font(.title)
+                        .padding(.bottom, 20)
+                    }
+                    
+                    Spacer()
+                }) {
                     HStack {
                         Text(format(number: calculatedResult))
                         Spacer()
