@@ -46,7 +46,7 @@ struct ContentView: View {
                     Spacer()
                     
                     Button(action: {
-                        self.swapInputOutput()
+                        self.viewModel.swapInputOutput()
                     }) {
                         Image(systemName: "arrow.up.arrow.down.circle.fill")
                         .font(.title)
@@ -56,7 +56,7 @@ struct ContentView: View {
                     Spacer()
                 }) {
                     HStack {
-                        Text(format(number: viewModel.calculatedResult))
+                        Text(viewModel.calculatedResult.convertToShortString())
                         Spacer()
                         Text(viewModel.selectedOutputNamedUnit.name)
                     }
@@ -83,23 +83,6 @@ struct ContentView: View {
     
     private func endEditing() {
         UIApplication.shared.endEditing()
-    }
-    
-    func format(number: Double) -> String {
-        let formatter = NumberFormatter()
-        let nsnumber = NSNumber(value: number)
-        formatter.minimumFractionDigits = 0
-        formatter.maximumFractionDigits = 5
-        
-        return String(formatter.string(from: nsnumber) ?? "")
-    }
-    
-    func swapInputOutput() {
-        let currentInputUnitIndex = self.viewModel.inputUnitIndex
-        let currentOutputUnitIndex = self.viewModel.outputUnitIndex
-        
-        self.viewModel.inputUnitIndex = currentOutputUnitIndex
-        self.viewModel.outputUnitIndex = currentInputUnitIndex
     }
 }
 

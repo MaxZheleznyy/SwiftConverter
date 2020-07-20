@@ -55,4 +55,12 @@ class ContentViewModel: ObservableObject {
         let source = Measurement(value: Double(stringedValueToConvert) ?? 0, unit: selectedInputNamedUnit.unit)
         return source.converted(to: selectedOutputNamedUnit.unit).value
     }
+    
+    func swapInputOutput() {
+        let currentInputUnitIndex = inputUnitIndex
+        let currentOutputUnitIndex = outputUnitIndex
+        
+        inputUnitIndex = currentOutputUnitIndex
+        outputUnitIndex = currentInputUnitIndex
+    }
 }

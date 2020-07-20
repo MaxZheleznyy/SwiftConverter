@@ -24,6 +24,7 @@
 		50D4ACC924C0C1890052289F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50D4ACC724C0C1890052289F /* LaunchScreen.storyboard */; };
 		50DDBA2C24C64A580024BB45 /* CollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDBA2B24C64A580024BB45 /* CollectionExtension.swift */; };
 		50DDBA2F24C655EF0024BB45 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDBA2E24C655EF0024BB45 /* ContentViewModel.swift */; };
+		50DDBA3224C6597E0024BB45 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDBA3124C6597E0024BB45 /* DoubleExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		50D4ACCA24C0C1890052289F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50DDBA2B24C64A580024BB45 /* CollectionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtension.swift; sourceTree = "<group>"; };
 		50DDBA2E24C655EF0024BB45 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		50DDBA3124C6597E0024BB45 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				50DDBA2B24C64A580024BB45 /* CollectionExtension.swift */,
+				50DDBA3124C6597E0024BB45 /* DoubleExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50DDBA3224C6597E0024BB45 /* DoubleExtension.swift in Sources */,
 				50D4ACBD24C0C1880052289F /* AppDelegate.swift in Sources */,
 				505FC4C824C0DA72002A1DC0 /* Length.swift in Sources */,
 				50D4ACBF24C0C1880052289F /* SceneDelegate.swift in Sources */,
