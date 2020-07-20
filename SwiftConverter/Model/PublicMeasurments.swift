@@ -10,9 +10,7 @@ import Foundation
 
 struct PublicMeasurments {
     static let measurments: [MeasurementProtocol.Type] = [
-        Area.self,
         Length.self,
-        Power.self,
         Temperature.self,
         Volume.self,
         Weight.self

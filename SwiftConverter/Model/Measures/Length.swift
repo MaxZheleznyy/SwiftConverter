@@ -20,8 +20,6 @@ struct Length: MeasurementProtocol {
     private static let feet = NamedUnit(name: "Feet", unit: UnitLength.feet)
     private static let yards = NamedUnit(name: "Yard", unit: UnitLength.yards)
     private static let miles = NamedUnit(name: "Miles", unit: UnitLength.miles)
-    
-    private static let parsecs = NamedUnit(name: "Parsecs", unit: UnitLength.parsecs)
 
-    static let includedUnits = [millimeters, centimeter, meters, kilometers, inches, feet, yards, miles, parsecs]
+    static let includedUnits = [millimeters, centimeter, meters, kilometers, inches, feet, yards, miles]
 }
