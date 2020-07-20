@@ -9,15 +9,15 @@
 import Foundation
 
 struct Volume: MeasurementProtocol {
-    static var name = "Temperature"
+    static var name = "Volume"
     
-    private static let milliliters = Unit(name: "Milliliters", unit: UnitVolume.milliliters)
-    private static let liters = Unit(name: "Liters", unit: UnitVolume.liters)
-    private static let kiloliters = Unit(name: "Kiloliters", unit: UnitVolume.kiloliters)
+    private static let milliliters = NamedUnit(name: "Milliliters", unit: UnitVolume.milliliters)
+    private static let liters = NamedUnit(name: "Liters", unit: UnitVolume.liters)
+    private static let kiloliters = NamedUnit(name: "Kiloliters", unit: UnitVolume.kiloliters)
     
-    private static let pints = Unit(name: "Pints", unit: UnitVolume.pints)
-    private static let quart = Unit(name: "Quarts", unit: UnitVolume.quarts)
-    private static let gallons = Unit(name: "Gallons", unit: UnitVolume.gallons)
+    private static let pints = NamedUnit(name: "Pints", unit: UnitVolume.pints)
+    private static let quart = NamedUnit(name: "Quarts", unit: UnitVolume.quarts)
+    private static let gallons = NamedUnit(name: "Gallons", unit: UnitVolume.gallons)
 
     static let includedUnits = [milliliters, liters, kiloliters, pints, quart, gallons]
 }

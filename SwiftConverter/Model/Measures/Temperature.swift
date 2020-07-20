@@ -11,8 +11,8 @@ import Foundation
 struct Temperature: MeasurementProtocol {
     static var name = "Temperature"
     
-    private static let celsius = Unit(name: "Celsius", unit: UnitTemperature.celsius)
-    private static let fahrenheit = Unit(name: "Fahrenheit", unit: UnitTemperature.fahrenheit)
+    private static let celsius = NamedUnit(name: "Celsius", unit: UnitTemperature.celsius)
+    private static let fahrenheit = NamedUnit(name: "Fahrenheit", unit: UnitTemperature.fahrenheit)
 
     static let includedUnits = [celsius, fahrenheit]
 }

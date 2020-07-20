@@ -10,5 +10,5 @@ import Foundation
 
 protocol MeasurementProtocol {
     static var name: String { get }
-    static var includedUnits: [Unit] { get }
+    static var includedUnits: [NamedUnit] { get }
 }

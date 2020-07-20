@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Unit {
+struct NamedUnit {
     let name: String
     let unit: Dimension
 }

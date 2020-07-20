@@ -11,13 +11,13 @@ import Foundation
 struct Weight: MeasurementProtocol {
     static var name = "Weight"
     
-    private static let milligrams = Unit(name: "Milligrams", unit: UnitMass.milligrams)
-    private static let grams = Unit(name: "Grams", unit: UnitMass.grams)
-    private static let kilograms = Unit(name: "Kilograms", unit: UnitMass.kilograms)
-    private static let tons = Unit(name: "Tons", unit: UnitMass.metricTons)
+    private static let milligrams = NamedUnit(name: "Milligrams", unit: UnitMass.milligrams)
+    private static let grams = NamedUnit(name: "Grams", unit: UnitMass.grams)
+    private static let kilograms = NamedUnit(name: "Kilograms", unit: UnitMass.kilograms)
+    private static let tons = NamedUnit(name: "Tons", unit: UnitMass.metricTons)
     
-    private static let ounces = Unit(name: "Ounces", unit: UnitMass.ounces)
-    private static let pounds = Unit(name: "Pounds", unit: UnitMass.pounds)
+    private static let ounces = NamedUnit(name: "Ounces", unit: UnitMass.ounces)
+    private static let pounds = NamedUnit(name: "Pounds", unit: UnitMass.pounds)
 
     static let includedUnits = [milligrams, grams, kilograms, tons, ounces, pounds]
 }
