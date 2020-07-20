@@ -11,29 +11,24 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var stringedValueToConvert = ""
-    
-    @State private var unitTypeIndex = 0
-    
-    @State private var inputNamedUnitIndexes = Array(repeating: 0, count: PublicMeasurments.measurments.count)
-    
-    @State private var outputNamedUnitIndexes = Array(repeating: 0, count: PublicMeasurments.measurments.count)
+    @State private var selectedMeasurmentIndex = 0
+    @State private var inputUnitIndex = 0
+    @State private var outputUnitIndex = 0
     
     var measurments: [MeasurementProtocol.Type] {
         return PublicMeasurments.measurments
     }
     
     var namedUnits: [NamedUnit] {
-        return measurments[unitTypeIndex].includedUnits
+        return measurments[selectedMeasurmentIndex].includedUnits
     }
     
     var selectedInputNamedUnit: NamedUnit {
-        let selectedSourceIndex = inputNamedUnitIndexes[unitTypeIndex]
-        return namedUnits[selectedSourceIndex]
+        return namedUnits[inputUnitIndex]
     }
     
     var selectedOutputNamedUnit: NamedUnit {
-        let selectedDestinationIndex = outputNamedUnitIndexes[unitTypeIndex]
-        return namedUnits[selectedDestinationIndex]
+        return namedUnits[outputUnitIndex]
     }
     
     var calculatedResult: Double {
@@ -45,7 +40,7 @@ struct ContentView: View {
         NavigationView {
             Form {
                 Section() {
-                    Picker("", selection: $unitTypeIndex) {
+                    Picker("", selection: $selectedMeasurmentIndex) {
                         ForEach(0 ..< measurments.count, id: \.self) {
                             Text("\(self.measurments[$0].name)")
                         }
@@ -62,12 +57,12 @@ struct ContentView: View {
                     }
                     .padding(.horizontal)
                     
-                    Picker("", selection: $inputNamedUnitIndexes[unitTypeIndex]) {
+                    Picker("", selection: $inputUnitIndex) {
                         ForEach(0 ..< namedUnits.count, id: \.self) { i in
                             Text(self.namedUnits[i].unit.symbol)
                         }
                     }
-                    .id(unitTypeIndex)
+                    .id(selectedMeasurmentIndex)
                     .pickerStyle(SegmentedPickerStyle())
                 }
             
@@ -75,7 +70,7 @@ struct ContentView: View {
                     Spacer()
                     
                     Button(action: {
-                        print("💩")
+                        self.swapInputOutput()
                     }) {
                         Image(systemName: "arrow.up.arrow.down.circle.fill")
                         .font(.title)
@@ -91,12 +86,12 @@ struct ContentView: View {
                     }
                     .padding(.horizontal)
 
-                    Picker("", selection: $outputNamedUnitIndexes[unitTypeIndex]) {
+                    Picker("", selection: $outputUnitIndex) {
                         ForEach(0 ..< namedUnits.count, id: \.self) { i in
                             Text(self.namedUnits[i].unit.symbol)
                         }
                     }
-                    .id(unitTypeIndex)
+                    .id(selectedMeasurmentIndex)
                     .pickerStyle(SegmentedPickerStyle())
                 }
             }
@@ -121,6 +116,14 @@ struct ContentView: View {
         formatter.maximumFractionDigits = 5
         
         return String(formatter.string(from: nsnumber) ?? "")
+    }
+    
+    func swapInputOutput() {
+        let currentInputUnitIndex = self.inputUnitIndex
+        let currentOutputUnitIndex = self.outputUnitIndex
+        
+        self.inputUnitIndex = currentOutputUnitIndex
+        self.outputUnitIndex = currentInputUnitIndex
     }
 }
 
