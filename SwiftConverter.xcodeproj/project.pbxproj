@@ -22,6 +22,8 @@
 		50D4ACC324C0C1890052289F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50D4ACC224C0C1890052289F /* Assets.xcassets */; };
 		50D4ACC624C0C1890052289F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50D4ACC524C0C1890052289F /* Preview Assets.xcassets */; };
 		50D4ACC924C0C1890052289F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50D4ACC724C0C1890052289F /* LaunchScreen.storyboard */; };
+		50DDBA2C24C64A580024BB45 /* CollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDBA2B24C64A580024BB45 /* CollectionExtension.swift */; };
+		50DDBA2F24C655EF0024BB45 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDBA2E24C655EF0024BB45 /* ContentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		50D4ACC524C0C1890052289F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		50D4ACC824C0C1890052289F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50D4ACCA24C0C1890052289F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50DDBA2B24C64A580024BB45 /* CollectionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtension.swift; sourceTree = "<group>"; };
+		50DDBA2E24C655EF0024BB45 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +123,9 @@
 			isa = PBXGroup;
 			children = (
 				505FC4BA24C0DA72002A1DC0 /* Model */,
+				50DDBA3024C655FD0024BB45 /* ViewModel */,
 				507F62FA24C604A6004646B2 /* View */,
+				50DDBA2D24C64A610024BB45 /* Extension */,
 				507F62F924C6048C004646B2 /* Support */,
 				50D4ACC424C0C1890052289F /* Preview Content */,
 			);
@@ -132,6 +138,22 @@
 				50D4ACC524C0C1890052289F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		50DDBA2D24C64A610024BB45 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				50DDBA2B24C64A580024BB45 /* CollectionExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		50DDBA3024C655FD0024BB45 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				50DDBA2E24C655EF0024BB45 /* ContentViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,10 +232,12 @@
 				50D4ACBF24C0C1880052289F /* SceneDelegate.swift in Sources */,
 				505FC4C724C0DA72002A1DC0 /* Power.swift in Sources */,
 				503F42A524C299B900BEF603 /* MeasurementProtocol.swift in Sources */,
+				50DDBA2C24C64A580024BB45 /* CollectionExtension.swift in Sources */,
 				505FC4D024C0DA72002A1DC0 /* Volume.swift in Sources */,
 				503F42A724C29AAE00BEF603 /* NamedUnit.swift in Sources */,
 				505FC4CC24C0DA72002A1DC0 /* Weight.swift in Sources */,
 				505FC4CD24C0DA72002A1DC0 /* Temperature.swift in Sources */,
+				50DDBA2F24C655EF0024BB45 /* ContentViewModel.swift in Sources */,
 				503F42A924C29BB700BEF603 /* PublicMeasurments.swift in Sources */,
 				50D4ACC124C0C1880052289F /* ContentView.swift in Sources */,
 				505FC4CF24C0DA72002A1DC0 /* Area.swift in Sources */,

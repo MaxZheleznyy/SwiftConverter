@@ -10,39 +10,15 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var stringedValueToConvert = ""
-    @State private var selectedMeasurmentIndex = 0
-    @State private var inputUnitIndex = 0
-    @State private var outputUnitIndex = 0
-    
-    var measurments: [MeasurementProtocol.Type] {
-        return PublicMeasurments.measurments
-    }
-    
-    var namedUnits: [NamedUnit] {
-        return measurments[selectedMeasurmentIndex].includedUnits
-    }
-    
-    var selectedInputNamedUnit: NamedUnit {
-        return namedUnits[inputUnitIndex]
-    }
-    
-    var selectedOutputNamedUnit: NamedUnit {
-        return namedUnits[outputUnitIndex]
-    }
-    
-    var calculatedResult: Double {
-        let source = Measurement(value: Double(stringedValueToConvert) ?? 0, unit: selectedInputNamedUnit.unit)
-        return source.converted(to: selectedOutputNamedUnit.unit).value
-    }
+    @ObservedObject var viewModel = ContentViewModel()
     
     var body: some View {
         NavigationView {
             Form {
                 Section() {
-                    Picker("", selection: $selectedMeasurmentIndex) {
-                        ForEach(0 ..< measurments.count, id: \.self) {
-                            Text("\(self.measurments[$0].name)")
+                    Picker("", selection: $viewModel.selectedMeasurmentIndex) {
+                        ForEach(0 ..< viewModel.measurments.count, id: \.self) {
+                            Text("\(self.viewModel.measurments[$0].name)")
                         }
                     }
                     .pickerStyle(SegmentedPickerStyle())
@@ -50,19 +26,19 @@ struct ContentView: View {
                 
                 Section() {
                     HStack {
-                        TextField("Enter value", text: $stringedValueToConvert)
+                        TextField("Enter value", text: $viewModel.stringedValueToConvert)
                             .keyboardType(.decimalPad)
                         Spacer()
-                        Text(selectedInputNamedUnit.name)
+                        Text(viewModel.selectedInputNamedUnit.name)
                     }
                     .padding(.horizontal)
                     
-                    Picker("", selection: $inputUnitIndex) {
-                        ForEach(0 ..< namedUnits.count, id: \.self) { i in
-                            Text(self.namedUnits[i].unit.symbol)
+                    Picker("", selection: $viewModel.inputUnitIndex) {
+                        ForEach(0 ..< viewModel.namedUnits.count, id: \.self) { i in
+                            Text(self.viewModel.namedUnits[i].unit.symbol)
                         }
                     }
-                    .id(selectedMeasurmentIndex)
+                    .id(viewModel.selectedMeasurmentIndex)
                     .pickerStyle(SegmentedPickerStyle())
                 }
             
@@ -80,18 +56,18 @@ struct ContentView: View {
                     Spacer()
                 }) {
                     HStack {
-                        Text(format(number: calculatedResult))
+                        Text(format(number: viewModel.calculatedResult))
                         Spacer()
-                        Text(selectedOutputNamedUnit.name)
+                        Text(viewModel.selectedOutputNamedUnit.name)
                     }
                     .padding(.horizontal)
 
-                    Picker("", selection: $outputUnitIndex) {
-                        ForEach(0 ..< namedUnits.count, id: \.self) { i in
-                            Text(self.namedUnits[i].unit.symbol)
+                    Picker("", selection: $viewModel.outputUnitIndex) {
+                        ForEach(0 ..< viewModel.namedUnits.count, id: \.self) { i in
+                            Text(self.viewModel.namedUnits[i].unit.symbol)
                         }
                     }
-                    .id(selectedMeasurmentIndex)
+                    .id(viewModel.selectedMeasurmentIndex)
                     .pickerStyle(SegmentedPickerStyle())
                 }
             }
@@ -119,11 +95,11 @@ struct ContentView: View {
     }
     
     func swapInputOutput() {
-        let currentInputUnitIndex = self.inputUnitIndex
-        let currentOutputUnitIndex = self.outputUnitIndex
+        let currentInputUnitIndex = self.viewModel.inputUnitIndex
+        let currentOutputUnitIndex = self.viewModel.outputUnitIndex
         
-        self.inputUnitIndex = currentOutputUnitIndex
-        self.outputUnitIndex = currentInputUnitIndex
+        self.viewModel.inputUnitIndex = currentOutputUnitIndex
+        self.viewModel.outputUnitIndex = currentInputUnitIndex
     }
 }
 
